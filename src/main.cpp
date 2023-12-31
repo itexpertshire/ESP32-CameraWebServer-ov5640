@@ -177,32 +177,7 @@ void setup() {
   Serial.println("Camera Ready! Use below link,");
   Serial.println("Stream Link: http://"+WiFi.localIP().toString()+":"+String(server_port)+"/stream");
   Serial.println("' to connect");
- /*
-  camera_config_t config;
-  config.ledc_channel = LEDC_CHANNEL_0;
-  config.ledc_timer = LEDC_TIMER_0;
-  config.pin_d0 = 5;
-  config.pin_d1 = 18;
-  config.pin_d2 = 19;
-  config.pin_d3 = 21;
-  config.pin_d4 = 36;
-  config.pin_d5 = 39;
-  config.pin_d6 = 34;
-  config.pin_d7 = 35;
-  config.pin_xclk = 0;
-  config.pin_pclk = 22;
-  config.pin_vsync = 25;
-  config.pin_href = 23;
-  config.pin_sscb_sda = sda;
-  config.pin_sscb_scl = scl;
-  config.pin_pwdn = 32;
-  config.pin_reset = -1;
-  config.xclk_freq_hz = 8000000;
-  config.pixel_format = PIXFORMAT_JPEG;
-  config.frame_size = FRAMESIZE_UXGA;
-  config.jpeg_quality = 10;
-  config.fb_count = 1;
-  */
+
     // Configure the camera
   camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
@@ -295,53 +270,6 @@ void setup() {
       Serial.println(light);
  
 
- //=============Wifi Manager
-//WiFiManager, Local intialization. Once its business is done, there is no need to keep it around
-
-    /*
-      
-    WiFiManager wm;
-
-    // reset settings - wipe stored credentials for testing
-    // these are stored by the esp library
-    //wm.resetSettings();
-
-    // Automatically connect using saved credentials,
-    // if connection fails, it starts an access point with the specified name ( "AutoConnectAP"),
-    // if empty will auto generate SSID, if password is blank it will be anonymous AP (wm.autoConnect())
-    // then goes into a blocking loop awaiting configuration and will return success result
-    wm.setAPCallback(configModeCallback);
-    bool res;
-    //wm.setCountry("US");
-    wm.setConnectTimeout(WIFI_TIMEOUT_S);
-    // res = wm.autoConnect(); // auto generated AP name from chipid
-    // res = wm.autoConnect("AutoConnectAP"); // anonymous ap
-    res = wm.autoConnect("AutoConnectAP","password"); // password protected ap
-
-    if(!res) {
-        Serial.println("Failed to connect");
-        delay(5000);
-        ESP.restart();
-    } 
-    else {
-        //if you get here you have connected to the WiFi   
-        Serial.print("Server Port ");  Serial.println(server_port); 
-        Serial.println("connected...yeey :)");
-        Serial.print("\nDefault ESP32 MAC Address: "); Serial.println(WiFi.macAddress());
-        esp_wifi_set_ps(WIFI_PS_MAX_MODEM);
-
-     #if defined(CAMERA_MODEL_WROVER_KIT)
-    // initialize the Red pin as an output to display WiFi connection status
-        digitalWrite(BLUE_LED_GPIO_NUM, LOW);     
-     #endif
-     #if defined(CAMERA_MODEL_AI_THINKER)   
-        digitalWrite(RED_LED_GPIO_NUM, HIGH); //Switch On
-     #endif
-    
-        
-    }
-
-    */
  
  
 }
